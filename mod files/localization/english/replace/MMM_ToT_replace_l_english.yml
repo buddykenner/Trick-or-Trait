@@ -1,0 +1,9 @@
+﻿l_english:
+
+# CHILDHOOD EVENTS
+
+ childhood.1017.b:1 "I make notes and will bring it up with [educator.GetTitledFirstName]"
+ childhood.1017.b.tt:1 "This will further both [study_friend.GetFirstNamePossessiveNoTooltip] and your studies of [stewardship|E]"
+
+ childhood.1018.a:0 "They could #EMP really#! use that extra money - but so could I."
+ childhood.1018.b:1 "This information needs to reach the [educator.GetTitleAsNameNoTooltip]!"

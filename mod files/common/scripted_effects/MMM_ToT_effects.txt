@@ -1,0 +1,268 @@
+﻿replace_trait_with_trick = {
+	if = {
+		limit = {
+			exists = mother
+			mother = { has_trait = $TRAIT$ }
+		}
+		add_trait = $TRAIT$_trick
+		set_variable = {
+			name = $TRAIT$_trick
+			value = mother
+		}
+	}
+	else_if = {
+		limit = {
+			exists = father
+			father = { has_trait = $TRAIT$ }
+		}
+		add_trait = $TRAIT$_trick
+		set_variable = {
+			name = $TRAIT$_trick
+			value = father
+		}
+	}
+	# if = {
+	# 	limit = {
+	# 		exists = real_father
+	# 		real_father = { has_trait = $TRAIT$ }
+	# 		trigger_if = {
+	# 			limit = { exists = father }
+	# 			NOT = { father = real_father }
+	# 		}
+	# 	}
+	# 	make_trait_inactive = $TRAIT$_trick
+	# }
+	if = {
+		limit = { has_trait = $TRAIT$ }
+		remove_trait = $TRAIT$
+		add_character_flag = $TRAIT$
+	}
+}
+
+# built-in trigger for having shrewd/dull/strong/weak
+replace_trick_with_trait = {
+	if = {
+		limit = { has_trait = $TRAIT$_trick }
+		remove_trait = $TRAIT$_trick
+	}
+	if = {
+		limit = { has_character_flag = $TRAIT$ }
+		add_trait = $TRAIT$
+		remove_character_flag = $TRAIT$
+	}
+	if = {
+		limit = { has_trait = shrewd }
+		remove_trait = intellect_bad_1_trick
+		remove_trait = intellect_bad_2_trick
+		remove_trait = intellect_bad_3_trick
+	}
+	else_if = {
+		limit = { has_trait = dull }
+		remove_trait = intellect_good_1_trick
+		remove_trait = intellect_good_2_trick
+		remove_trait = intellect_good_3_trick
+	}
+	if = {
+		limit = { has_trait = strong }
+		remove_trait = physique_bad_1_trick
+		remove_trait = physique_bad_2_trick
+		remove_trait = physique_bad_3_trick
+	}
+	else_if = {
+		limit = { has_trait = weak }
+		remove_trait = physique_good_1_trick
+		remove_trait = physique_good_2_trick
+		remove_trait = physique_good_3_trick
+	}
+}
+
+# requires a trigger for having a trait from physique/beauty/intellect trait group
+replace_trick_with_trait_rank = {
+	change_trait_rank = { trait = $TRAIT$_$POS$ rank = 1 }
+	hidden_effect = { change_trait_rank = { trait = $TRAIT$_$NEG$_trick rank = -3 }}
+	
+	if = {
+		limit = { has_trait = $TRAIT$_$POS$_1 }
+		remove_character_flag = $TRAIT$_$POS$_1
+	}
+	else_if = {
+		limit = { has_trait = $TRAIT$_$POS$_2 }
+		remove_character_flag = $TRAIT$_$POS$_2 }
+	else = {
+		remove_character_flag = $TRAIT$_$POS$_3
+	}
+	
+	
+	if = {
+		limit = { has_trait = physique_good }
+		remove_trait = weak_trick
+	}
+	else_if = {
+		limit = { has_trait = physique_bad }
+		remove_trait = strong_trick
+	}
+
+	if = {
+		limit = { has_trait = intellect_good }
+		remove_trait = dull_trick
+	}
+	else_if = {
+		limit = { has_trait = intellect_bad }
+		remove_trait = shrewd_trick
+	}
+}
+
+remove_trick = {
+	remove_trait = $TRAIT$_trick
+}
+
+set_prowess_trick = {
+	if = {
+		limit = { has_character_flag = physique_good_1 }
+		set_variable = {
+			name = prowess_trick
+			value = 2
+		}
+	}
+	else_if = {
+		limit = { has_character_flag = physique_good_2 }
+		set_variable = {
+			name = prowess_trick
+			value = 4
+		}
+	}
+	else_if = {
+		limit = { has_character_flag = physique_good_3 }
+		set_variable = {
+			name = prowess_trick
+			value = 8
+		}
+	}
+	else_if = {
+		limit = { has_character_flag = physique_bad_1 }
+		set_variable = {
+			name = prowess_trick
+			value = -2
+		}
+	}
+	else_if = {
+		limit = { has_character_flag = physique_bad_2 }
+		set_variable = {
+			name = prowess_trick
+			value = -4
+		}
+	}
+	else_if = {
+		limit = { has_character_flag = physique_bad_3 }
+		set_variable = {
+			name = prowess_trick
+			value = -6
+		}
+	}
+}
+
+set_diplomacy_trick = {
+	if = {
+		limit = { has_character_flag = shrewd }
+		set_variable = {
+			name = diplomacy_trick
+			value = 2
+		}
+	}
+	else_if = {
+		limit = { has_character_flag = dull }
+		set_variable = {
+			name = diplomacy_trick
+			value = -2
+		}
+	}
+}
+
+set_learning_trick = {
+	if = {
+		limit = { has_character_flag = intellect_good_1 }
+		set_variable = {
+			name = learning_trick
+			value = 1
+		}
+	}
+	else_if = {
+		limit = { has_character_flag = intellect_good_2 }
+		set_variable = {
+			name = learning_trick
+			value = 3
+		}
+	}
+	else_if = {
+		limit = { has_character_flag = intellect_good_3 }
+		set_variable = {
+			name = learning_trick
+			value = 4
+		}
+	}
+	else_if = {
+		limit = { has_character_flag = intellect_bad_1 }
+		set_variable = {
+			name = learning_trick
+			value = -2
+		}
+	}
+	else_if = {
+		limit = { has_character_flag = intellect_bad_2 }
+		set_variable = {
+			name = learning_trick
+			value = -4
+		}
+	}
+	else_if = {
+		limit = { has_character_flag = intellect_bad_3 }
+		set_variable = {
+			name = learning_trick
+			value = -8
+		}
+	}
+}
+
+coming_of_age_add_trait_rank = {
+	hidden_effect = { remove_trait = $TRAIT$_$RANK$_trick }
+	if = {
+		limit = { has_character_flag = $TRAIT$_$RANK$ }
+		hidden_effect = { change_trait_rank = { trait = $TRAIT$ rank = -3 }}
+		add_trait = $TRAIT$_$RANK$
+	}
+	remove_character_flag = $TRAIT$_$RANK$
+}
+
+coming_of_age_add_trait = {
+	hidden_effect = { remove_trait = $TRAIT$_trick }
+	if = {
+		limit = { has_character_flag = $TRAIT$ }
+		add_trait = $TRAIT$
+	}
+	remove_character_flag = $TRAIT$
+}
+
+coming_of_age_replace_trick_with_trait = {
+	coming_of_age_add_trait_rank = { TRAIT = intellect_good RANK = 1 }
+	coming_of_age_add_trait_rank = { TRAIT = intellect_good RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = intellect_good RANK = 3 }
+	coming_of_age_add_trait_rank = { TRAIT = intellect_bad RANK = 1 }
+	coming_of_age_add_trait_rank = { TRAIT = intellect_bad RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = intellect_bad RANK = 3 }
+	coming_of_age_add_trait_rank = { TRAIT = physique_good RANK = 1 }
+	coming_of_age_add_trait_rank = { TRAIT = physique_good RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = physique_good RANK = 3 }
+	coming_of_age_add_trait_rank = { TRAIT = physique_bad RANK = 1 }
+	coming_of_age_add_trait_rank = { TRAIT = physique_bad RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = physique_bad RANK = 3 }
+	coming_of_age_add_trait_rank = { TRAIT = beauty_good RANK = 1 }
+	coming_of_age_add_trait_rank = { TRAIT = beauty_good RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = beauty_good RANK = 3 }
+	coming_of_age_add_trait_rank = { TRAIT = beauty_bad RANK = 1 }
+	coming_of_age_add_trait_rank = { TRAIT = beauty_bad RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = beauty_bad RANK = 3 }
+	coming_of_age_add_trait = { TRAIT = shrewd }
+	coming_of_age_add_trait = { TRAIT = dull }
+	coming_of_age_add_trait = { TRAIT = strong }
+	coming_of_age_add_trait = { TRAIT = weak }
+}

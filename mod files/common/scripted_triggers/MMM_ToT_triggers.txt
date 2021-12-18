@@ -1,0 +1,44 @@
+﻿parent_has_genetic_trait = {
+	OR = {
+		AND = {
+			exists = mother
+			mother = { has_trait_with_flag = genetic_trait }
+		}
+		AND = {
+			exists = father
+			father = { has_trait_with_flag = genetic_trait }
+		}
+		AND = {
+			exists = real_father
+			NOT = { real_father = father }
+			real_father = { has_trait_with_flag = genetic_trait }
+		}
+	}
+}
+
+child_has_genetic_trick = {
+	OR = {
+		has_character_flag = physique_good_1
+		has_character_flag = physique_good_2
+		has_character_flag = physique_good_3
+		has_character_flag = physique_bad_1
+		has_character_flag = physique_bad_2
+		has_character_flag = physique_bad_3
+		has_character_flag = intellect_good_1
+		has_character_flag = intellect_good_2
+		has_character_flag = intellect_good_3
+		has_character_flag = intellect_bad_1
+		has_character_flag = intellect_bad_2
+		has_character_flag = intellect_bad_3
+		has_character_flag = beauty_good_1
+		has_character_flag = beauty_good_2
+		has_character_flag = beauty_good_3
+		has_character_flag = beauty_bad_1
+		has_character_flag = beauty_bad_2
+		has_character_flag = beauty_bad_3
+		has_character_flag = shrewd
+		has_character_flag = dull
+		has_character_flag = strong
+		has_character_flag = weak
+	}
+}

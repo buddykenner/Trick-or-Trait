@@ -1,0 +1,55 @@
+﻿namespace = trick_or_treat_error
+
+trick_or_treat_error.0001 = {
+	hidden = yes
+
+	trigger = {
+		has_variable = physique_bad_1
+		has_variable = physique_bad_2
+		has_variable = physique_bad_3
+		has_variable = physique_good_1
+		has_variable = physique_good_2
+		has_variable = physique_good_3
+		has_variable = intellect_bad_1
+		has_variable = intellect_bad_2
+		has_variable = intellect_bad_3
+		has_variable = intellect_good_1
+		has_variable = intellect_good_2
+		has_variable = intellect_good_3
+		has_variable = beauty_bad_1
+		has_variable = beauty_bad_2
+		has_variable = beauty_bad_3
+		has_variable = beauty_good_1
+		has_variable = beauty_good_2
+		has_variable = beauty_good_3
+		has_variable = shrewd
+		has_variable = dull
+		has_variable = strong
+		has_variable = weak
+
+		has_variable = physique_bad_1_trick
+		has_variable = physique_bad_2_trick
+		has_variable = physique_bad_3_trick
+		has_variable = physique_good_1_trick
+		has_variable = physique_good_2_trick
+		has_variable = physique_good_3_trick
+		has_variable = intellect_bad_1_trick
+		has_variable = intellect_bad_2_trick
+		has_variable = intellect_bad_3_trick
+		has_variable = intellect_good_1_trick
+		has_variable = intellect_good_2_trick
+		has_variable = intellect_good_3_trick
+		has_variable = beauty_bad_1_trick
+		has_variable = beauty_bad_2_trick
+		has_variable = beauty_bad_3_trick
+		has_variable = beauty_good_1_trick
+		has_variable = beauty_good_2_trick
+		has_variable = beauty_good_3_trick
+		has_variable = shrewd_trick
+		has_variable = dull_trick
+		has_variable = strong_trick
+		has_variable = weak_trick
+	}
+}
+
+

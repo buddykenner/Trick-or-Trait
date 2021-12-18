@@ -1,0 +1,81 @@
+﻿on_game_start_after_lobby = {
+	on_actions = {
+		on_game_start_trick_or_trait
+	}
+}
+
+on_game_start_trick_or_trait = {
+	effect = {
+		every_living_character = {
+			limit = {
+				age < 16
+				OR = {
+					parent_has_genetic_trait = yes
+					has_trait_with_flag = genetic_trait
+				}
+			}
+			replace_trait_with_trick = { TRAIT = physique_bad_1 }
+			replace_trait_with_trick = { TRAIT = physique_bad_2 }
+			replace_trait_with_trick = { TRAIT = physique_bad_3 }
+			replace_trait_with_trick = { TRAIT = physique_good_1 }
+			replace_trait_with_trick = { TRAIT = physique_good_2 }
+			replace_trait_with_trick = { TRAIT = physique_good_3 }
+			replace_trait_with_trick = { TRAIT = intellect_bad_1 }
+			replace_trait_with_trick = { TRAIT = intellect_bad_2 }
+			replace_trait_with_trick = { TRAIT = intellect_bad_3 }
+			replace_trait_with_trick = { TRAIT = intellect_good_1 }
+			replace_trait_with_trick = { TRAIT = intellect_good_2 }
+			replace_trait_with_trick = { TRAIT = intellect_good_3 }
+			replace_trait_with_trick = { TRAIT = beauty_bad_1 }
+			replace_trait_with_trick = { TRAIT = beauty_bad_2 }
+			replace_trait_with_trick = { TRAIT = beauty_bad_3 }
+			replace_trait_with_trick = { TRAIT = beauty_good_1 }
+			replace_trait_with_trick = { TRAIT = beauty_good_2 }
+			replace_trait_with_trick = { TRAIT = beauty_good_3 }
+			replace_trait_with_trick = { TRAIT = shrewd }
+			replace_trait_with_trick = { TRAIT = dull }
+			replace_trait_with_trick = { TRAIT = strong }
+			replace_trait_with_trick = { TRAIT = weak }
+		}
+	}
+}
+
+
+on_birth_child = {
+	on_actions = {
+		on_birth_child_trick_or_trait
+	}
+}
+
+on_birth_child_trick_or_trait = {
+	trigger = {
+		OR = {
+			parent_has_genetic_trait = yes
+			has_trait_with_flag = genetic_trait
+		}
+	}
+	effect = {
+		replace_trait_with_trick = { TRAIT = physique_bad_1 }
+		replace_trait_with_trick = { TRAIT = physique_bad_2 }
+		replace_trait_with_trick = { TRAIT = physique_bad_3 }
+		replace_trait_with_trick = { TRAIT = physique_good_1 }
+		replace_trait_with_trick = { TRAIT = physique_good_2 }
+		replace_trait_with_trick = { TRAIT = physique_good_3 }
+		replace_trait_with_trick = { TRAIT = intellect_bad_1 }
+		replace_trait_with_trick = { TRAIT = intellect_bad_2 }
+		replace_trait_with_trick = { TRAIT = intellect_bad_3 }
+		replace_trait_with_trick = { TRAIT = intellect_good_1 }
+		replace_trait_with_trick = { TRAIT = intellect_good_2 }
+		replace_trait_with_trick = { TRAIT = intellect_good_3 }
+		replace_trait_with_trick = { TRAIT = beauty_bad_1 }
+		replace_trait_with_trick = { TRAIT = beauty_bad_2 }
+		replace_trait_with_trick = { TRAIT = beauty_bad_3 }
+		replace_trait_with_trick = { TRAIT = beauty_good_1 }
+		replace_trait_with_trick = { TRAIT = beauty_good_2 }
+		replace_trait_with_trick = { TRAIT = beauty_good_3 }
+		replace_trait_with_trick = { TRAIT = shrewd }
+		replace_trait_with_trick = { TRAIT = dull }
+		replace_trait_with_trick = { TRAIT = strong }
+		replace_trait_with_trick = { TRAIT = weak }
+	}
+}

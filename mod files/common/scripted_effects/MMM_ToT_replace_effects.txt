@@ -1,0 +1,675 @@
+﻿education_point_acquisition_support_effect = {
+	#Save educator
+	if = {
+		limit = {
+			any_relation = {
+				type = guardian
+				always = yes
+			}
+		}
+		random_relation = {
+			type = guardian
+			save_scope_as = educator
+		}
+	}
+
+	#Set variables if they don't exist
+	if = {
+		limit = {
+			NOT = { has_variable = education_$SKILL$_variable }
+		}
+		set_variable = {
+			name = education_$SKILL$_variable
+			value = 0
+		}
+	}
+
+	#Randomize success or failure
+	random_list = {
+		#Success
+		60 = {
+			#Child intelligence
+			modifier = {
+				OR = {
+					has_trait = intellect_good_3
+					has_character_flag = intellect_good_3
+				}
+				add = 20
+			}
+			modifier = {
+				OR = {
+					has_trait = intellect_good_2
+					has_character_flag = intellect_good_2
+				}
+				add = 15
+			}
+			modifier = {
+				OR = {
+					has_trait = intellect_good_1
+					has_trait = shrewd
+					has_character_flag = intellect_good_1
+					has_character_flag = shrewd
+				}
+				add = 10
+			}
+			#Educator intelligence & skill
+			modifier = {
+				exists = scope:educator
+				add = {
+					#Intelligence
+					if = {
+						limit = { scope:educator = { has_trait = intellect_good_3 } }
+						value = 15
+					}
+					else_if = {
+						limit = { scope:educator = { has_trait = intellect_good_2 } }
+						value = 10
+					}
+					else_if = {
+						limit = {
+							scope:educator = {
+								OR = {
+									has_trait = intellect_good_1
+									has_trait = shrewd
+								}
+							}
+						}
+						value = 5
+					}
+					#Specific skill
+					add = {
+						value = scope:educator.$SKILL$
+						multiply = educator_skill_modifier_factor
+					}
+					#Learning skill
+					add = {
+						value = scope:educator.learning
+						multiply = educator_learning_skill_modifier_factor
+					}
+				}
+			}
+			
+			#Affinity
+			modifier = {
+				has_$SKILL$_education_affinity_childhood_trait_trigger = yes
+				add = matching_childhood_trait_modifier_value
+			}
+
+			#Disaffinity
+			modifier = {
+				has_$SKILL$_education_disaffinity_childhood_trait_trigger = yes
+				add = mismatching_childhood_trait_modifier_value
+			}
+			
+
+			change_variable = {
+				name = education_$SKILL$_variable
+				add = 2
+			}
+		}
+		#Failure
+		40 = {
+			#Child intelligence
+			modifier = {
+				OR = {
+					has_trait = intellect_bad_3
+					has_trait = inbred
+					has_character_flag = intellect_bad_3
+				}
+				add = 20
+			}
+			modifier = {
+				OR = {
+					has_trait = intellect_bad_2
+					has_character_flag = intellect_bad_2
+				}
+				add = 15
+			}
+			modifier = {
+				OR = {
+					has_trait = intellect_bad_1
+					has_trait = dull
+					has_character_flag = intellect_bad_1
+					has_character_flag = dull
+				}
+				add = 10
+			}
+
+			#Educator intelligence & skill
+			modifier = {
+				exists = scope:educator
+				add = {
+					#Intelligence
+					if = {
+						limit = { scope:educator = { has_trait = intellect_bad_3 } }
+						value = 15
+					}
+					else_if = {
+						limit = { scope:educator = { has_trait = intellect_bad_2 } }
+						value = 10
+					}
+					else_if = {
+						limit = {
+							scope:educator = {
+								OR = {
+									has_trait = intellect_bad_1
+									has_trait = dull
+								}
+							}
+						}
+						value = 5
+					}
+				}
+			}
+			modifier = {
+				add = 20
+				NOT = {
+					exists = scope:educator
+				}
+			}
+		}
+	}
+}
+
+contract_disease_effect = {
+	if = { #Is the disease valid?
+		limit = { can_contract_disease_trigger = { DISEASE = $DISEASE$ } }
+		replace_trick_with_trait = { TRAIT = strong }
+		replace_trick_with_trait = { TRAIT = weak }
+		hidden_effect = {
+			#SET SCOPES
+			save_scope_as = sick_character
+
+			save_scope_value_as = {
+				name = disease_type
+				value = flag:$DISEASE$
+			}
+
+			save_temporary_scope_value_as = {
+				name = treatment_event
+				value = flag:$TREATMENT_EVENT$
+			}
+
+			if = {
+				limit = { #Should I get early great pox instead of great pox?
+					scope:disease_type = flag:great_pox
+					NOR = {
+						has_trait = lovers_pox
+						has_trait = early_great_pox
+					}
+				}
+				save_scope_value_as = {
+					name = disease_type
+					value = flag:early_great_pox
+				}
+			}
+
+			#Data collection
+			disease_data_save_contraction_effect = { DISEASE = $DISEASE$ }
+
+
+			#TREATMENT EVENT
+			if = {
+				limit = {
+					scope:treatment_event = flag:yes
+					court_physician_available_trigger = yes
+				}
+
+				trigger_event = {
+					id = health.3100
+					days = 5
+				}
+			}
+			else_if = {
+				limit = { scope:treatment_event = flag:no } #This is just here to stop errors
+			}
+		}
+
+
+		#NON-CONTAGIOUS DISEASES
+		if = {
+			limit = {
+				OR = {
+					scope:disease_type = flag:ill
+					scope:disease_type = flag:pneumonic
+					scope:disease_type = flag:gout_ridden
+					scope:disease_type = flag:leper
+					scope:disease_type = flag:typhus
+					scope:disease_type = flag:consumption
+					scope:disease_type = flag:cancer
+				}
+			}
+
+			if = { #Removes ill if progressing to pneumonia
+				limit = {
+					scope:disease_type = flag:pneumonic
+					has_trait = ill
+				}
+				remove_trait = ill
+			}
+
+			add_trait_force_tooltip = $DISEASE$
+		}
+
+		#STD DISEASES
+		else_if = { #Lover's pox
+			limit = { scope:disease_type = flag:lovers_pox }
+			add_trait_force_tooltip = lovers_pox
+
+			hidden_effect = {
+				#Trigger regular contagion checks
+				trigger_event = {
+					id = health.1200
+					days = { 60 1000 } #This first one can happen quite fast, the following checks are delayed 250-10000 days depending on traits
+				}
+			}
+		}
+		else_if = { #Early great pox
+			limit = { scope:disease_type = flag:early_great_pox }
+			add_trait_force_tooltip = early_great_pox
+			
+			hidden_effect = {
+				trigger_event = {
+					id = health.1013 #Reveals the true disease
+					days = { 90 150 }
+				}
+			}
+		}
+		else_if = { #Great pox
+			limit = {  scope:disease_type = flag:great_pox }
+
+			hidden_effect = {
+				remove_trait = lovers_pox #If you get Great Pox and already have lover's pox, we pretend that lover's pox was the first symptoms
+				remove_trait = early_great_pox
+			}
+			add_trait_force_tooltip = great_pox
+
+			hidden_effect = {
+				#Trigger regular contagion checks
+				trigger_event = {
+					id = health.1201
+					days = { 250 1500 } #This first one can happen quite fast, the following checks are delayed 350-10000 days depending on traits
+				}
+			}
+		}
+
+		#CONTAGIOUS "EPIDEMIC" DISEASES
+		else_if = {
+			limit = {
+				OR = {
+					scope:disease_type = flag:smallpox
+					scope:disease_type = flag:bubonic_plague
+				}
+			}
+
+			add_trait_force_tooltip = $DISEASE$
+
+			#Regular contagion checks
+			if = {
+				limit = { scope:disease_type = flag:smallpox  }
+				trigger_event = {
+					id = health.1202
+					days = { smallpox_contagion_min smallpox_contagion_max }
+				}
+			}
+			else_if = {
+				limit = { scope:disease_type = flag:bubonic_plague  }
+				trigger_event = {
+					id = health.1203
+					days = { bubonic_plague_contagion_min bubonic_plague_contagion_max }
+				}
+			}
+
+			#Set up notification system for players to collect data and inform about end of breakout
+			if = {
+				limit = {
+					has_health_court_owner_trigger = yes #Imprisoner or court owner
+				}
+				save_health_court_owner_effect = { SCOPE_NAME = health_court_owner }#Imprisoner or court owner
+				activate_outbreak_story_effect = {
+					DISEASE = $DISEASE$
+					RULER = scope:health_court_owner
+					SICK_CHARACTER = scope:sick_character
+				}
+			}
+		}
+
+		#RECOVERY
+		if = { #Ill
+			limit = { scope:disease_type = flag:ill }
+			trigger_event = {
+				id = health.1101
+				days = { ill_recovery_min ill_recovery_max }
+			}
+		}
+		else_if = { #Pneumonic
+			limit = { scope:disease_type = flag:pneumonic }
+			trigger_event = {
+				id = health.1102
+				days = { pneumonic_recovery_min pneumonic_recovery_max }
+			}
+		}
+		else_if = { #Gout
+			limit = { scope:disease_type = flag:gout_ridden }
+			random = {
+				chance = 25
+				modifier = {
+					has_trait = gluttonous
+					add = -15
+				}
+				modifier = {
+					has_trait = temperate
+					add = 15
+				}
+				trigger_event = {
+					id = health.1103
+					days = { gout_ridden_recovery_min gout_ridden_recovery_max } #1 to 30 years
+				}
+			}
+		}
+		else_if = { #Typhus
+			limit = { scope:disease_type = flag:typhus }
+			trigger_event = {
+				id = health.1105
+				days = { 45 150 }
+			}
+		}
+		else_if = { #Consumption
+			limit = { scope:disease_type = flag:consumption }
+			trigger_event = {
+				id = health.1106
+				days = { 365 2190 } #1 to 6 years
+			}
+		}
+		else_if = { #Cancer
+			limit = { scope:disease_type = flag:cancer }
+			random = {
+				chance = 1
+				trigger_event = {
+					id = health.1107
+					days = { 365 3650 } #1 to 10 years
+				}
+			}
+		}
+		else_if = { #Great pox
+			limit = {
+				OR = {
+					scope:disease_type = flag:early_great_pox
+					scope:disease_type = flag:great_pox
+				}
+			}
+			trigger_event = {
+				id = health.1109
+				days = { 730 5475 } #2 to 15 years (note that early pox progresses into great pox in 60-150 days and great pox leads to lunacy after 5 to 15 years)
+			}
+		}
+		else_if = { #Smallpox
+			limit = { scope:disease_type = flag:smallpox }
+			trigger_event = {
+				id = health.1110
+				days = { smallpox_min_recovery_time smallpox_max_recovery_time }
+			}
+		}
+		else_if = { #Bubonic Plague
+			limit = { scope:disease_type = flag:bubonic_plague }
+			trigger_event = {
+				id = health.1111
+				days = { bubonic_plague_min_recovery_time bubonic_plague_max_recovery_time }
+			}
+		}
+		#No recovery for leper and lover's pox
+
+
+		#EPILEPSY RISK
+		if = {
+			limit = { scope:disease_type = flag:ill }
+			epilepsy_fever_risk_effect = { CHANCE = 1 }
+		}
+		else_if = {
+			limit = {
+				OR = {
+					scope:disease_type = flag:pneumonic
+					scope:disease_type = flag:typhus
+					scope:disease_type = flag:consumption
+					scope:disease_type = flag:smallpox
+					scope:disease_type = flag:bubonic_plague
+				}
+			}
+			epilepsy_fever_risk_effect = { CHANCE = 5 }
+		}
+
+		#NOTIFICATIONS: CONTAGIOUS DISEASE, FAMILY & SEX PARTNER STD, NOTIFICATIONS & LIEGE TREATMENT EVENTS
+
+		#List creation:
+		#Imprisoner/court owner if contagious
+		if = {
+			limit = {
+				OR = {
+					scope:disease_type = flag:smallpox
+					scope:disease_type = flag:bubonic_plague
+				}
+				is_ruler = no
+				has_health_court_owner_trigger = yes #Imprisoner or court owner
+			}
+			save_health_court_owner_effect = { SCOPE_NAME = health_court_owner }#Imprisoner or court owner
+
+			scope:health_court_owner = {
+				if = {
+					limit = { NOT = { is_in_list = disase_notification_list } }
+					add_to_temporary_list = disase_notification_list
+				}
+			}
+		}
+		#Sex partners if STD
+		if = {
+			limit = {
+				OR = {
+					scope:disease_type = flag:lovers_pox
+					scope:disease_type = flag:early_great_pox
+					scope:disease_type = flag:great_pox
+				}
+			}
+			every_consort = {
+				limit = {
+					#is_imprisoned = no
+					NOT = { is_in_list = disase_notification_list }
+				}
+				add_to_temporary_list = disase_notification_list
+			}
+			every_relation = {
+				type = lover
+				limit = {
+					#is_imprisoned = no
+					NOT = { is_in_list = disase_notification_list }
+				}
+				add_to_temporary_list = disase_notification_list
+			}
+		}
+		#Family if the disease is somewhat dangerous
+		if = {
+			limit = {
+				sick_enough_for_relative_to_care_trigger = yes
+			}
+			every_parent = {
+				limit = {
+					is_landed = yes
+					NOT = { is_in_list = disase_notification_list }
+				}
+				add_to_temporary_list = disase_notification_list
+			}
+			every_spouse = {
+				limit = {
+					is_landed = yes
+					NOT = { is_in_list = disase_notification_list }
+				}
+				add_to_temporary_list = disase_notification_list
+			}
+			every_heir_title = {
+				limit = {
+					exists = holder
+				}
+				holder = {
+					if = {
+						limit = {
+							player_heir = scope:sick_character
+							NOT = { is_in_list = disase_notification_list }
+						}
+						add_to_temporary_list = disase_notification_list
+					}
+				}
+			}
+		}
+		
+
+		#Go through list and send notifications
+		every_in_list = {
+			list = disase_notification_list
+
+			#Send a contagion warning/treatment event
+			if = {
+				limit = {
+					OR = {
+						scope:disease_type = flag:smallpox
+						scope:disease_type = flag:bubonic_plague
+					}
+					scope:sick_character = { has_health_court_owner_trigger = yes }
+					trigger_if = {
+						limit = { exists = scope:trigger_health_court_owner } #Set by trigger above
+						this = scope:trigger_health_court_owner
+					}
+				}
+				#Event if important sick character or this is start of outbreak
+				if = {
+					limit = {
+						OR = {
+							has_new_contagious_disease_outbreak_story_trigger = yes
+							trigger_if = {
+								limit = { exists = player_heir }
+								player_heir = scope:sick_character
+							}
+							is_parent_of = scope:sick_character
+							is_spouse_of = scope:sick_character
+						}
+					}
+					trigger_event = health.2101
+				}
+				#Otherwise feed message
+				else_if = {
+					limit = { is_ai = no } #AIs don't care about updates
+					save_temporary_scope_as = message_receiver
+					if = {
+						limit = {
+							scope:disease_type = flag:smallpox
+						}
+						send_interface_message = {
+							title = health_smallpox_spreads_message
+							left_icon = scope:sick_character
+							show_as_tooltip = {
+								scope:sick_character = { add_trait_force_tooltip = $DISEASE$ }
+							}
+						}
+					}
+					else = {
+						send_interface_message = {
+							title = health_bubonic_plague_spreads_message
+							left_icon = scope:sick_character
+							show_as_tooltip = {
+								scope:sick_character = { add_trait_force_tooltip = $DISEASE$ }
+							}
+						}
+					}
+				}
+			}
+			#Send a STD warning event
+			else_if = {
+				limit = {
+					OR = {
+						scope:disease_type = flag:lovers_pox
+						scope:disease_type = flag:early_great_pox
+						scope:disease_type = flag:great_pox
+					}
+					OR = {
+						is_consort_of = scope:sick_character
+						has_relation_lover = scope:sick_character
+					}
+				}
+				scope:sick_character = { save_scope_as = std_partner }
+				if = {
+					limit = { scope:disease_type = flag:great_pox }
+					trigger_event = {
+						id = health.2002 #Partner has great pox
+						days = { 7 14 }
+					}
+				}
+				else = {
+					trigger_event = {
+						id = health.2001 #Partner has lover's pox/early great great pox
+						days = { 7 14 }
+					}
+				}
+			}
+			#Send a notification/treatment event to family
+			else_if = {
+				limit = {
+					OR = {
+						#It's a player heir
+						trigger_if = {
+							limit = { exists = player_heir }
+							player_heir = scope:sick_character
+						}
+						#Or a child/spouse who is really sick or this character has to pick their treatment
+						AND = {
+							OR = {
+								is_parent_of = scope:sick_character
+								is_spouse_of = scope:sick_character
+							}
+							OR = {
+								#The sick character is dying
+								health < death_chance_dying_health
+								#This character gets to pick sick character's treatment
+								trigger_if = {
+									limit = { exists = scope:sick_character.liege }
+									this = scope:sick_character.liege
+									scope:sick_character = { liege_picks_treatment_trigger = yes }
+								}
+							}
+						}
+					}
+				}
+				trigger_event = {
+					id = health.2201 #Important character is sick
+					days = 3
+				}
+				#set a variable, so you are sure to get a follow-up
+				if = {
+					limit = { is_ai = no }
+					scope:sick_character = {
+						add_to_variable_list = {
+							name = recovery_event_receivers
+							target = prev
+						}
+					}
+				}
+			}
+			#Send a feed message
+			else = {	
+				save_scope_as = message_receiver
+				send_interface_message = {
+					left_icon = scope:sick_character
+					title = disease_contraction_feed_message.t
+					show_as_tooltip = {
+						scope:sick_character = {	
+							if = {
+								limit = { scope:disease_type = flag:early_great_pox }
+								add_trait_force_tooltip = early_great_pox
+							}
+							else = {
+								add_trait_force_tooltip = $DISEASE$
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
