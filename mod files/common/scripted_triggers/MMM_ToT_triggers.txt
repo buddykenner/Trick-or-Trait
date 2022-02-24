@@ -1,17 +1,34 @@
 ﻿parent_has_genetic_trait = {
 	OR = {
-		AND = {
-			exists = mother
-			mother = { has_trait_with_flag = genetic_trait }
+		trigger_if = {
+			limit = { exists = mother }
+			mother = {
+				OR = {
+					num_of_good_genetic_traits > 0
+					num_of_bad_genetic_traits > 0
+				}
+			}
 		}
-		AND = {
-			exists = father
-			father = { has_trait_with_flag = genetic_trait }
+		trigger_if = {
+			limit = { exists = father }
+			father = {
+				OR = {
+					num_of_good_genetic_traits > 0
+					num_of_bad_genetic_traits > 0
+				}
+			}
 		}
-		AND = {
-			exists = real_father
-			NOT = { real_father = father }
-			real_father = { has_trait_with_flag = genetic_trait }
+		trigger_if = {
+			limit = {
+				exists = real_father
+				NOT = { real_father = father }
+			}
+			real_father = {
+				OR = {
+					num_of_good_genetic_traits > 0
+					num_of_bad_genetic_traits > 0
+				}
+			}
 		}
 	}
 }

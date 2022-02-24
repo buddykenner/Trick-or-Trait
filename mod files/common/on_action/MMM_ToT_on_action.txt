@@ -11,7 +11,8 @@ on_game_start_trick_or_trait = {
 				age < 16
 				OR = {
 					parent_has_genetic_trait = yes
-					has_trait_with_flag = genetic_trait
+					num_of_good_genetic_traits > 0
+					num_of_bad_genetic_traits > 0
 				}
 			}
 			replace_trait_with_trick = { TRAIT = physique_bad_1 }
@@ -51,7 +52,8 @@ on_birth_child_trick_or_trait = {
 	trigger = {
 		OR = {
 			parent_has_genetic_trait = yes
-			has_trait_with_flag = genetic_trait
+			num_of_good_genetic_traits > 0
+			num_of_bad_genetic_traits > 0
 		}
 	}
 	effect = {

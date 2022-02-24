@@ -86,6 +86,11 @@
 						value = scope:educator.learning
 						multiply = educator_learning_skill_modifier_factor
 					}
+					#Storyteller tradition
+					if = {
+						limit = { scope:educator.culture = { has_cultural_parameter = better_ward_education } }
+						value = 10
+					}
 				}
 			}
 			
