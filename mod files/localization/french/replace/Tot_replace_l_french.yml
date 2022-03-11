@@ -1,0 +1,9 @@
+﻿l_french:
+
+# CHILDHOOD EVENTS
+
+ childhood.1017.b:1 "Je prends des notes et j'en parlerai avec [educator.GetTitledFirstName]"
+ childhood.1017.b.tt:1 "Cela favorisera à la fois [study_friend.GetFirstNamePossessiveNoTooltip] et mes études en [stewardship|E]"
+
+ childhood.1018.a:0 "Ils pourraient vraiment utiliser cet argent supplémentaire - mais moi aussi."
+ childhood.1018.b:1 "Ces informations doivent parvenir à [educator.GetTitleAsNameNoTooltip] !"
