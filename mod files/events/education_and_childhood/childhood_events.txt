@@ -1820,7 +1820,7 @@ childhood.1000 = {
 			}
 		}
 	}
-	option = {
+		option = {
 		name = childhood.1000.a
 		ai_chance = {
 			base = 80
