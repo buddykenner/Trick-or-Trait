@@ -53,9 +53,5 @@ child_has_genetic_trick = {
 		has_character_flag = beauty_bad_1
 		has_character_flag = beauty_bad_2
 		has_character_flag = beauty_bad_3
-		has_character_flag = shrewd
-		has_character_flag = dull
-		has_character_flag = strong
-		has_character_flag = weak
 	}
 }

@@ -254,7 +254,11 @@ coming_of_age.0001 = {
   		}
 		triggered_animation = {
 			trigger = {
-				has_focus = education_learning
+				OR ={
+					has_focus = education_learning
+					has_variable = education_learning_variable
+				}
+
 			}
   			animation = personality_rational
   		}
@@ -306,12 +310,18 @@ coming_of_age.0001 = {
 	trigger = {
 		OR = {
 			has_focus = education_learning
+			has_variable = education_learning_variable
 			NOR = {
 				has_focus = education_learning
 				has_focus = education_diplomacy
 				has_focus = education_intrigue
 				has_focus = education_martial
 				has_focus = education_stewardship
+				has_variable = education_learning_variable
+				has_variable = education_diplomacy_variable
+				has_variable = education_intrigue_variable
+				has_variable = education_martial_variable
+				has_variable = education_stewardship_variable
 			}
 		}
 		NOR = {  # In case a character start with an education trait from the ruler designer
@@ -736,7 +746,10 @@ coming_of_age.0002 = {
   		}
 		triggered_animation = {
 			trigger = {
-				has_focus = education_stewardship
+				OR = {
+					has_focus = education_stewardship
+					has_variable = education_stewardship_variable
+				}
 			}
   			animation = steward
   		}
@@ -774,12 +787,19 @@ coming_of_age.0002 = {
 	}
 	override_background = {
 		trigger = {
-			has_focus = education_stewardship
+			OR = {
+				has_focus = education_stewardship
+				has_variable = education_stewardship_variable
+			}
 		}
 		event_background = market
-	}	
+	}
+	
 	trigger = {
-		has_focus = education_stewardship
+		OR = {
+			has_focus = education_stewardship
+			has_variable = education_stewardship_variable
+		}
 		NOR = {  # In case a character start with an education trait from the ruler designer
 			has_trait = education_learning
 			has_trait = education_diplomacy
@@ -1131,7 +1151,10 @@ coming_of_age.0003 = {
 		character = root
 		triggered_animation = {
 			trigger = {
-				has_focus = education_martial
+				OR = {
+					has_focus = education_martial
+					has_variable = education_martial_variable
+				}
 			}
   			animation = marshal
   		}
@@ -1163,7 +1186,10 @@ coming_of_age.0003 = {
 	}
 	override_background = {
 		trigger = {
-			has_focus = education_martial
+			OR = {
+				has_focus = education_martial
+				has_variable = education_martial_variable
+			}
 		}
 		event_background = courtyard
 	}
@@ -1187,7 +1213,10 @@ coming_of_age.0003 = {
 	}
 	
 	trigger = {
-		has_focus = education_martial
+		OR = {
+			has_focus = education_martial
+			has_variable = education_martial_variable
+		}
 		NOR = {  # In case a character start with an education trait from the ruler designer
 			has_trait = education_learning
 			has_trait = education_diplomacy
@@ -1453,7 +1482,7 @@ coming_of_age.0003 = {
 		remove_variable = education_martial_variable
 		hidden_effect = { 
 			remove_variables_and_trait_coming_of_age_effect = yes
-			apply_hold_court_grace_effect = yes #start the grace period for hold court}
+			apply_hold_court_grace_effect = yes #start the grace period for hold court
 		}
 	}
 }
@@ -1716,7 +1745,10 @@ coming_of_age.0004 = {
   		}
 		triggered_animation = {
 			trigger = {
-				has_focus = education_intrigue
+				OR = {
+					has_focus = education_intrigue
+					has_variable = education_intrigue_variable
+				}
 			}
   			animation = spymaster
   		}
@@ -1742,7 +1774,10 @@ coming_of_age.0004 = {
 	}
 	override_background = {
 		trigger = {
-			has_focus = education_intrigue
+			OR = {
+				has_focus = education_intrigue
+				has_variable = education_intrigue_variable
+			}
 		}
 		event_background = physicians_study
 	}
@@ -1754,7 +1789,10 @@ coming_of_age.0004 = {
 	}
 	
 	trigger = {
-		has_focus = education_intrigue
+		OR = {
+			has_focus = education_intrigue
+			has_variable = education_intrigue_variable
+		}
 		NOR = {  # In case a character start with an education trait from the ruler designer
 			has_trait = education_learning
 			has_trait = education_diplomacy
@@ -2100,7 +2138,10 @@ coming_of_age.0005 = {
   		}
 		triggered_animation = {
 			trigger = {
-				has_focus = education_diplomacy
+				OR = {
+					has_focus = education_diplomacy
+					has_variable = education_diplomacy_variable
+				}
 			}
   			animation = flirtation_left
   		}
@@ -2114,7 +2155,10 @@ coming_of_age.0005 = {
 	}
 	override_background = {
 		trigger = {
-			has_focus = education_diplomacy
+			OR = {
+				has_focus = education_diplomacy
+				has_variable = education_diplomacy_variable
+			}
 		}
 		event_background = council_chamber
 	}
@@ -2132,7 +2176,10 @@ coming_of_age.0005 = {
 	}
 	
 	trigger = {
-		has_focus = education_diplomacy
+		OR = {
+			has_focus = education_diplomacy
+			has_variable = education_diplomacy_variable
+		}
 		NOR = {  # In case a character start with an education trait from the ruler designer
 			has_trait = education_learning
 			has_trait = education_diplomacy
@@ -2333,7 +2380,7 @@ coming_of_age.1001 = {
 		}
 		event_background = market
 	}
-		
+	
 	trigger = {
 		this = scope:parent_guardian
 	}

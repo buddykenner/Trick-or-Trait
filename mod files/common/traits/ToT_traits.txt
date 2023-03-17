@@ -710,3 +710,964 @@ dull_trick = {
 	birth = 0
 	random_creation = 0
 }
+
+fecund_trick = {
+
+	physical = yes
+
+	name = trait_fecund
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_fecund_trick_desc
+			}
+			desc = trait_fecund_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+infertile_trick = {
+
+	physical = yes
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_infertile_male
+			}
+			triggered_desc = {
+				trigger = { is_female = yes }
+				desc = trait_infertile_female
+			}
+			desc = trait_infertile_male
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_infertile_trick_desc
+			}
+			triggered_desc = {
+				trigger = { is_female = yes }
+				desc = trait_infertile_trick_female_desc
+			}
+			desc = trait_infertile_trick_male_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+pure_blooded_trick = {
+
+	physical = yes
+
+	name = trait_pure_blooded
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_pure_blooded_trick_desc
+			}
+			desc = trait_pure_blooded_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+#PIT
+
+silver_tongued = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_silver_tongued_desc
+			}
+			desc = trait_silver_tongued_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+glowing = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_glowing_desc
+			}
+			desc = trait_glowing_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+surefooted = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_surefooted_desc
+			}
+			desc = trait_surefooted_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+regal_bearing = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_regal_bearing_desc
+			}
+			desc = trait_regal_bearing_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+pt_balanced_humors = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_pt_balanced_humors_desc
+			}
+			desc = trait_pt_balanced_humors_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+hardy_lung = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_hardy_lung_desc
+			}
+			desc = trait_hardy_lung_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+hawkeyed = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_hawkeyed_desc
+			}
+			desc = trait_hawkeyed_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+nearsighted = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_nearsighted_desc
+			}
+			desc = trait_nearsighted_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+keen-eared = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_keen-eared_desc
+			}
+			desc = trait_keen-eared_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+deaf = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_deaf_desc
+			}
+			desc = trait_deaf_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+dyslexic = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dyslexic_desc
+			}
+			desc = trait_dyslexic_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+hyperlexic = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_hyperlexic_desc
+			}
+			desc = trait_hyperlexic_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+dyscalculic = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dyscalculic_desc
+			}
+			desc = trait_dyscalculic_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+hypercalculic = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_hypercalculic_desc
+			}
+			desc = trait_hypercalculic_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+permanent_scowl = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_permanent_scowl_desc
+			}
+			desc = trait_permanent_scowl_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+friendly_face = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_friendly_face_desc
+			}
+			desc = trait_friendly_face_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+memory_good = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_memory_good_desc
+			}
+			desc = trait_memory_good_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+memory_bad = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_memory_bad_desc
+			}
+			desc = trait_memory_bad_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+#PIT Tricks
+
+silver_tongued_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_silver_tongued_trick_desc
+			}
+			desc = trait_silver_tongued_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+glowing_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_glowing_trick_desc
+			}
+			desc = trait_glowing_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+surefooted_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_surefooted_trick_desc
+			}
+			desc = trait_surefooted_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+regal_bearing_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_regal_bearing_trick_desc
+			}
+			desc = trait_regal_bearing_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+pt_balanced_humors_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_pt_balanced_humors_trick_desc
+			}
+			desc = trait_pt_balanced_humors_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+hardy_lung_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_hardy_lung_trick_desc
+			}
+			desc = trait_hardy_lung_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+hawkeyed_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_hawkeyed_trick_desc
+			}
+			desc = trait_hawkeyed_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+nearsighted_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_nearsighted_trick_desc
+			}
+			desc = trait_nearsighted_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+keen-eared_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_keen-eared_trick_desc
+			}
+			desc = trait_keen-eared_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+deaf_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_deaf_trick_desc
+			}
+			desc = trait_deaf_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+dyslexic_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dyslexic_trick_desc
+			}
+			desc = trait_dyslexic_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+hyperlexic_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_hyperlexic_trick_desc
+			}
+			desc = trait_hyperlexic_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+dyscalculic_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dyscalculic_trick_desc
+			}
+			desc = trait_dyscalculic_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+hypercalculic_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_hypercalculic_trick_desc
+			}
+			desc = trait_hypercalculic_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+permanent_scowl_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_permanent_scowl_trick_desc
+			}
+			desc = trait_permanent_scowl_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+friendly_face_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_friendly_face_trick_desc
+			}
+			desc = trait_friendly_face_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+memory_good_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_memory_good_trick_desc
+			}
+			desc = trait_memory_good_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+
+memory_bad_trick = {
+
+	physical = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_memory_bad_trick_desc
+			}
+			desc = trait_memory_bad_trick_character_desc
+		}
+	}
+
+	genetic = yes
+	shown_in_ruler_designer = no
+	flag = no_message
+	inherit_chance = 0
+	birth = 0
+	random_creation = 0
+}
+

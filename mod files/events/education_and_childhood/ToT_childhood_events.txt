@@ -1,0 +1,463 @@
+﻿namespace = ToT_childhood
+
+ToT_childhood.0001 = {
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = beauty_good_1
+			has_character_flag = beauty_good_2
+			has_character_flag = beauty_good_3
+			has_character_flag = beauty_bad_1
+			has_character_flag = beauty_bad_2
+			has_character_flag = beauty_bad_3
+			has_character_flag = hardy_lung
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait_rank = { TRAIT = beauty POS = good NEG = bad }
+			replace_trick_with_trait_rank = { TRAIT = beauty POS = bad NEG = good }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait = { TRAIT = hardy_lung }
+		}
+	}
+}
+
+ToT_childhood.0002 = {
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = intellect_good_1
+			has_character_flag = intellect_good_2
+			has_character_flag = intellect_good_3
+			has_character_flag = intellect_bad_1
+			has_character_flag = intellect_bad_2
+			has_character_flag = intellect_bad_3
+			has_character_flag = silver_tongued
+			has_character_flag = keen-eared
+			has_character_flag = deaf
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait_rank = { TRAIT = intellect POS = good NEG = bad }
+			replace_trick_with_trait_rank = { TRAIT = intellect POS = bad NEG = good }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait = { TRAIT = silver_tongued }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait = { TRAIT = keen-eared }
+			replace_trick_with_trait = { TRAIT = deaf }
+		}
+		
+	}
+}
+
+ToT_childhood.0003 = {
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = intellect_good_1
+			has_character_flag = intellect_good_2
+			has_character_flag = intellect_good_3
+			has_character_flag = intellect_bad_1
+			has_character_flag = intellect_bad_2
+			has_character_flag = intellect_bad_3
+			has_character_flag = hyperlexic
+			has_character_flag = dyslexic
+			has_character_flag = memory_good
+			has_character_flag = memory_bad
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait_rank = { TRAIT = intellect POS = good NEG = bad }
+			replace_trick_with_trait_rank = { TRAIT = intellect POS = bad NEG = good }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait = { TRAIT = dyslexic }
+			replace_trick_with_trait = { TRAIT = hyperlexic }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait = { TRAIT = memory_good }
+			replace_trick_with_trait = { TRAIT = memory_bad }
+		}
+	}
+}
+
+ToT_childhood.0004 = {
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = intellect_good_1
+			has_character_flag = intellect_good_2
+			has_character_flag = intellect_good_3
+			has_character_flag = intellect_bad_1
+			has_character_flag = intellect_bad_2
+			has_character_flag = intellect_bad_3
+			has_character_flag = hypercalculic
+			has_character_flag = dyscalculic
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait_rank = { TRAIT = intellect POS = good NEG = bad }
+			replace_trick_with_trait_rank = { TRAIT = intellect POS = bad NEG = good }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait = { TRAIT = hypercalculic }
+			replace_trick_with_trait = { TRAIT = dyscalculic }
+		}
+	}
+}
+
+ToT_childhood.0005 = {
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = beauty_good_1
+			has_character_flag = beauty_good_2
+			has_character_flag = beauty_good_3
+			has_character_flag = beauty_bad_1
+			has_character_flag = beauty_bad_2
+			has_character_flag = beauty_bad_3
+			has_character_flag = permanent_scowl
+			has_character_flag = friendly_face
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait_rank = { TRAIT = beauty POS = good NEG = bad }
+			replace_trick_with_trait_rank = { TRAIT = beauty POS = bad NEG = good }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait = { TRAIT = permanent_scowl }
+			replace_trick_with_trait = { TRAIT = friendly_face }
+		}
+	}
+}
+
+ToT_childhood.0006 = {
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = physique_good_1
+			has_character_flag = physique_good_2
+			has_character_flag = physique_good_3
+			has_character_flag = physique_bad_1
+			has_character_flag = physique_bad_2
+			has_character_flag = physique_bad_3
+			has_character_flag = nearsighted
+			has_character_flag = hawkeyed
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait_rank = { TRAIT = physique POS = good NEG = bad }
+			replace_trick_with_trait_rank = { TRAIT = physique POS = bad NEG = good }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait = { TRAIT = nearsighted }
+			replace_trick_with_trait = { TRAIT = hawkeyed }
+		}
+	}
+}
+
+ToT_childhood.0007 = {
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = physique_good_1
+			has_character_flag = physique_good_2
+			has_character_flag = physique_good_3
+			has_character_flag = physique_bad_1
+			has_character_flag = physique_bad_2
+			has_character_flag = physique_bad_3
+			has_character_flag = pt_balanced_humors
+			has_character_flag = surefooted
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait_rank = { TRAIT = physique POS = good NEG = bad }
+			replace_trick_with_trait_rank = { TRAIT = physique POS = bad NEG = good }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait = { TRAIT = pt_balanced_humors }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait = { TRAIT = surefooted }
+		}
+	}
+}
+
+ToT_childhood.0008 = {
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = beauty_good_1
+			has_character_flag = beauty_good_2
+			has_character_flag = beauty_good_3
+			has_character_flag = beauty_bad_1
+			has_character_flag = beauty_bad_2
+			has_character_flag = beauty_bad_3
+			has_character_flag = glowing
+			has_character_flag = regal_bearing
+			has_character_flag = fecund
+			has_character_flag = infertile
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait_rank = { TRAIT = physique POS = good NEG = bad }
+			replace_trick_with_trait_rank = { TRAIT = physique POS = bad NEG = good }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait_rank = { TRAIT = beauty POS = good NEG = bad }
+			replace_trick_with_trait_rank = { TRAIT = beauty POS = bad NEG = good }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait = { TRAIT = glowing }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait = { TRAIT = regal_bearing }
+		}
+		random = {
+			chance = ToT_early_reveal_chance
+			replace_trick_with_trait = { TRAIT = fecund }
+			replace_trick_with_trait = { TRAIT = infertile }
+		}
+	}
+}
+
+ToT_childhood.9999 = {
+	hidden = yes
+	orphan = yes
+
+	trigger	= {
+		has_variable = physique_bad_3 
+		has_variable = physique_bad_2 
+		has_variable = physique_bad_1 
+		has_variable = physique_good_3 
+		has_variable = physique_good_2 
+		has_variable = physique_good_1 
+		has_variable = intellect_bad_3 
+		has_variable = intellect_bad_2 
+		has_variable = intellect_bad_1 
+		has_variable = intellect_good_3 
+		has_variable = intellect_good_2 
+		has_variable = intellect_good_1 
+		has_variable = beauty_bad_3 
+		has_variable = beauty_bad_2 
+		has_variable = beauty_bad_1 
+		has_variable = beauty_good_3 
+		has_variable = beauty_good_2 
+		has_variable = beauty_good_1 
+		has_variable = fecund 
+		has_variable = infertile 
+		has_variable = pure_blooded 
+		#PIT
+		has_variable = silver_tongued 
+		has_variable = glowing 
+		has_variable = surefooted 
+		has_variable = regal_bearing 
+		has_variable = pt_balanced_humors 
+		has_variable = hardy_lung 
+		has_variable = hawkeyed 
+		has_variable = nearsighted 
+		has_variable = keen-eared 
+		has_variable = deaf 
+		has_variable = dyslexic 
+		has_variable = hyperlexic 
+		has_variable = dyscalculic 
+		has_variable = hypercalculic 
+		has_variable = permanent_scowl 
+		has_variable = friendly_face 
+		has_variable = memory_good 
+		has_variable = memory_bad
+		#Not congenital
+		has_variable = shrewd 
+		has_variable = dull 
+		has_variable = strong 
+		has_variable = weak
+
+		has_variable = physique_bad_3_trick
+		has_variable = physique_bad_2_trick
+		has_variable = physique_bad_1_trick
+		has_variable = physique_good_3_trick
+		has_variable = physique_good_2_trick
+		has_variable = physique_good_1_trick
+		has_variable = intellect_bad_3_trick
+		has_variable = intellect_bad_2_trick
+		has_variable = intellect_bad_1_trick
+		has_variable = intellect_good_3_trick
+		has_variable = intellect_good_2_trick
+		has_variable = intellect_good_1_trick
+		has_variable = beauty_bad_3_trick
+		has_variable = beauty_bad_2_trick
+		has_variable = beauty_bad_1_trick
+		has_variable = beauty_good_3_trick
+		has_variable = beauty_good_2_trick
+		has_variable = beauty_good_1_trick
+		has_variable = fecund_trick
+		has_variable = infertile_trick
+		has_variable = pure_blooded_trick
+		#PIT
+		has_variable = silver_tongued_trick
+		has_variable = glowing_trick
+		has_variable = surefooted_trick
+		has_variable = regal_bearing_trick
+		has_variable = pt_balanced_humors_trick
+		has_variable = hardy_lung_trick
+		has_variable = hawkeyed_trick
+		has_variable = nearsighted_trick
+		has_variable = keen-eared_trick
+		has_variable = deaf_trick
+		has_variable = dyslexic_trick
+		has_variable = hyperlexic_trick
+		has_variable = dyscalculic_trick
+		has_variable = hypercalculic_trick
+		has_variable = permanent_scowl_trick
+		has_variable = friendly_face_trick
+		has_variable = memory_good_trick
+		has_variable = memory_bad
+		#Not_congenital
+		has_variable = shrewd_trick
+		has_variable = dull_trick
+		has_variable = strong_trick
+		has_variable = weak
+	}
+
+	immediate = {
+		add_character_flag = physique_bad_3 
+		add_character_flag = physique_bad_2 
+		add_character_flag = physique_bad_1 
+		add_character_flag = physique_good_3 
+		add_character_flag = physique_good_2 
+		add_character_flag = physique_good_1 
+		add_character_flag = intellect_bad_3 
+		add_character_flag = intellect_bad_2 
+		add_character_flag = intellect_bad_1 
+		add_character_flag = intellect_good_3 
+		add_character_flag = intellect_good_2 
+		add_character_flag = intellect_good_1 
+		add_character_flag = beauty_bad_3 
+		add_character_flag = beauty_bad_2 
+		add_character_flag = beauty_bad_1 
+		add_character_flag = beauty_good_3 
+		add_character_flag = beauty_good_2 
+		add_character_flag = beauty_good_1 
+		add_character_flag = fecund 
+		add_character_flag = infertile 
+		add_character_flag = pure_blooded 
+		#PIT
+		add_character_flag = silver_tongued 
+		add_character_flag = glowing 
+		add_character_flag = surefooted 
+		add_character_flag = regal_bearing 
+		add_character_flag = pt_balanced_humors 
+		add_character_flag = hardy_lung 
+		add_character_flag = hawkeyed 
+		add_character_flag = nearsighted 
+		add_character_flag = keen-eared 
+		add_character_flag = deaf 
+		add_character_flag = dyslexic 
+		add_character_flag = hyperlexic 
+		add_character_flag = dyscalculic 
+		add_character_flag = hypercalculic 
+		add_character_flag = permanent_scowl 
+		add_character_flag = friendly_face 
+		add_character_flag = memory_good 
+		add_character_flag = memory_bad
+		#Not congenital
+		add_character_flag = shrewd 
+		add_character_flag = dull 
+		add_character_flag = strong 
+		add_character_flag = weak
+
+		add_character_flag = physique_bad_3_trick
+		add_character_flag = physique_bad_2_trick
+		add_character_flag = physique_bad_1_trick
+		add_character_flag = physique_good_3_trick
+		add_character_flag = physique_good_2_trick
+		add_character_flag = physique_good_1_trick
+		add_character_flag = intellect_bad_3_trick
+		add_character_flag = intellect_bad_2_trick
+		add_character_flag = intellect_bad_1_trick
+		add_character_flag = intellect_good_3_trick
+		add_character_flag = intellect_good_2_trick
+		add_character_flag = intellect_good_1_trick
+		add_character_flag = beauty_bad_3_trick
+		add_character_flag = beauty_bad_2_trick
+		add_character_flag = beauty_bad_1_trick
+		add_character_flag = beauty_good_3_trick
+		add_character_flag = beauty_good_2_trick
+		add_character_flag = beauty_good_1_trick
+		add_character_flag = fecund_trick
+		add_character_flag = infertile_trick
+		add_character_flag = pure_blooded_trick
+		#PIT
+		add_character_flag = silver_tongued_trick
+		add_character_flag = glowing_trick
+		add_character_flag = surefooted_trick
+		add_character_flag = regal_bearing_trick
+		add_character_flag = pt_balanced_humors_trick
+		add_character_flag = hardy_lung_trick
+		add_character_flag = hawkeyed_trick
+		add_character_flag = nearsighted_trick
+		add_character_flag = keen-eared_trick
+		add_character_flag = deaf_trick
+		add_character_flag = dyslexic_trick
+		add_character_flag = hyperlexic_trick
+		add_character_flag = dyscalculic_trick
+		add_character_flag = hypercalculic_trick
+		add_character_flag = permanent_scowl_trick
+		add_character_flag = friendly_face_trick
+		add_character_flag = memory_good_trick
+		add_character_flag = memory_bad
+		#Not_congenital
+		add_character_flag = shrewd_trick
+		add_character_flag = dull_trick
+		add_character_flag = strong_trick
+		add_character_flag = weak
+	}
+}

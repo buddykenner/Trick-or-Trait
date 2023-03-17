@@ -41,6 +41,7 @@
 					has_trait = intellect_good_2
 					has_character_flag = intellect_good_2
 				}
+				NOT = { has_character_flag = intellect_good_3 }
 				add = 15
 			}
 			modifier = {
@@ -49,6 +50,10 @@
 					has_trait = shrewd
 					has_character_flag = intellect_good_1
 					has_character_flag = shrewd
+				}
+				NOT = { 
+					has_character_flag = intellect_good_3 
+					has_character_flag = intellect_good_2					
 				}
 				add = 10
 			}
@@ -127,6 +132,9 @@
 					has_trait = intellect_bad_2
 					has_character_flag = intellect_bad_2
 				}
+				NOT = {
+					has_character_flag = intellect_bad_3
+				}
 				add = 15
 			}
 			modifier = {
@@ -135,6 +143,10 @@
 					has_trait = dull
 					has_character_flag = intellect_bad_1
 					has_character_flag = dull
+				}
+				NOT = {
+					has_character_flag = intellect_bad_3
+					has_character_flag = intellect_bad_2
 				}
 				add = 10
 			}

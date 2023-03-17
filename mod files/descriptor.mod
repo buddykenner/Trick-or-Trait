@@ -1,8 +1,7 @@
-version="1.0.3"
+version="1.1.0"
 tags={
 	"Balance"
 	"Gameplay"
 }
-name="Trick or Trait"
-supported_version="1.8.*"
-remote_file_id="2664692789"
+name="PIT Trick or Trait"
+supported_version="1.7.*"
