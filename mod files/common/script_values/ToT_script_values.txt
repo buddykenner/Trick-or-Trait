@@ -1,0 +1,1 @@
+﻿ToT_early_reveal_chance = 50

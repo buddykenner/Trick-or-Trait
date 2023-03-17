@@ -49,6 +49,7 @@ replace_trick_with_trait = {
 		limit = { has_character_flag = $TRAIT$ }
 		add_trait = $TRAIT$
 		remove_character_flag = $TRAIT$
+		notify_parent_or_guardian_effect = { TRAIT = $TRAIT$ }
 	}
 	if = {
 		limit = { has_trait = shrewd }
@@ -78,19 +79,38 @@ replace_trick_with_trait = {
 
 # requires a trigger for having a trait from physique/beauty/intellect trait group
 replace_trick_with_trait_rank = {
-	change_trait_rank = { trait = $TRAIT$_$POS$ rank = 1 }
-	hidden_effect = { change_trait_rank = { trait = $TRAIT$_$NEG$_trick rank = -3 }}
-	
 	if = {
-		limit = { has_trait = $TRAIT$_$POS$_1 }
-		remove_character_flag = $TRAIT$_$POS$_1
+		limit = {
+			OR = {
+				has_character_flag = $TRAIT$_$POS$_1
+				has_character_flag = $TRAIT$_$POS$_2
+				has_character_flag = $TRAIT$_$POS$_3
+			}	
+		}
+		change_trait_rank = { trait = $TRAIT$_$POS$ rank = 1 }
+		hidden_effect = { change_trait_rank = { trait = $TRAIT$_$NEG$_trick rank = -3 }}
+		
+		if = {
+			limit = { has_trait = $TRAIT$_$POS$_1 }
+			remove_character_flag = $TRAIT$_$POS$_1
+			remove_trait = $TRAIT$_$POS$_1_trick
+			notify_parent_or_guardian_effect = { TRAIT = $TRAIT$_$POS$_1 }
+		}
+		else_if = {
+			limit = { has_trait = $TRAIT$_$POS$_2 }
+			remove_character_flag = $TRAIT$_$POS$_2
+			remove_trait = $TRAIT$_$POS$_2_trick
+			notify_parent_or_guardian_effect = { TRAIT = $TRAIT$_$POS$_2 }
+
+		}
+		else = {
+			remove_character_flag = $TRAIT$_$POS$_3
+			remove_trait = $TRAIT$_$POS$_3_trick
+			notify_parent_or_guardian_effect = { TRAIT = $TRAIT$_$POS$_3 }
+
+		}
 	}
-	else_if = {
-		limit = { has_trait = $TRAIT$_$POS$_2 }
-		remove_character_flag = $TRAIT$_$POS$_2 }
-	else = {
-		remove_character_flag = $TRAIT$_$POS$_3
-	}
+	
 	
 	
 	if = {
@@ -228,6 +248,7 @@ coming_of_age_add_trait_rank = {
 	if = {
 		limit = { has_character_flag = $TRAIT$_$RANK$ }
 		hidden_effect = { change_trait_rank = { trait = $TRAIT$ rank = -3 }}
+		notify_parent_or_guardian_effect = { TRAIT = $TRAIT$_$RANK$ }
 		add_trait = $TRAIT$_$RANK$
 	}
 	remove_character_flag = $TRAIT$_$RANK$
@@ -238,31 +259,117 @@ coming_of_age_add_trait = {
 	if = {
 		limit = { has_character_flag = $TRAIT$ }
 		add_trait = $TRAIT$
+		notify_parent_or_guardian_effect = { TRAIT = $TRAIT$ }
 	}
 	remove_character_flag = $TRAIT$
 }
 
 coming_of_age_replace_trick_with_trait = {
-	coming_of_age_add_trait_rank = { TRAIT = intellect_good RANK = 1 }
-	coming_of_age_add_trait_rank = { TRAIT = intellect_good RANK = 2 }
 	coming_of_age_add_trait_rank = { TRAIT = intellect_good RANK = 3 }
-	coming_of_age_add_trait_rank = { TRAIT = intellect_bad RANK = 1 }
-	coming_of_age_add_trait_rank = { TRAIT = intellect_bad RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = intellect_good RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = intellect_good RANK = 1 }
 	coming_of_age_add_trait_rank = { TRAIT = intellect_bad RANK = 3 }
-	coming_of_age_add_trait_rank = { TRAIT = physique_good RANK = 1 }
-	coming_of_age_add_trait_rank = { TRAIT = physique_good RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = intellect_bad RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = intellect_bad RANK = 1 }
 	coming_of_age_add_trait_rank = { TRAIT = physique_good RANK = 3 }
-	coming_of_age_add_trait_rank = { TRAIT = physique_bad RANK = 1 }
-	coming_of_age_add_trait_rank = { TRAIT = physique_bad RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = physique_good RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = physique_good RANK = 1 }
 	coming_of_age_add_trait_rank = { TRAIT = physique_bad RANK = 3 }
-	coming_of_age_add_trait_rank = { TRAIT = beauty_good RANK = 1 }
-	coming_of_age_add_trait_rank = { TRAIT = beauty_good RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = physique_bad RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = physique_bad RANK = 1 }
 	coming_of_age_add_trait_rank = { TRAIT = beauty_good RANK = 3 }
-	coming_of_age_add_trait_rank = { TRAIT = beauty_bad RANK = 1 }
-	coming_of_age_add_trait_rank = { TRAIT = beauty_bad RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = beauty_good RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = beauty_good RANK = 1 }
 	coming_of_age_add_trait_rank = { TRAIT = beauty_bad RANK = 3 }
-	coming_of_age_add_trait = { TRAIT = shrewd }
-	coming_of_age_add_trait = { TRAIT = dull }
-	coming_of_age_add_trait = { TRAIT = strong }
-	coming_of_age_add_trait = { TRAIT = weak }
+	coming_of_age_add_trait_rank = { TRAIT = beauty_bad RANK = 2 }
+	coming_of_age_add_trait_rank = { TRAIT = beauty_bad RANK = 1 }
+	coming_of_age_add_trait = { TRAIT = fecund }
+	coming_of_age_add_trait = { TRAIT = infertile }
+	coming_of_age_add_trait = { TRAIT = pure_blooded }
+	#PIT
+	coming_of_age_add_trait = { TRAIT = silver_tongued }
+	coming_of_age_add_trait = { TRAIT = glowing }
+	coming_of_age_add_trait = { TRAIT = surefooted }
+	coming_of_age_add_trait = { TRAIT = regal_bearing }
+	coming_of_age_add_trait = { TRAIT = pt_balanced_humors }
+	coming_of_age_add_trait = { TRAIT = hardy_lung }
+	coming_of_age_add_trait = { TRAIT = hawkeyed }
+	coming_of_age_add_trait = { TRAIT = nearsighted }
+	coming_of_age_add_trait = { TRAIT = keen-eared }
+	coming_of_age_add_trait = { TRAIT = deaf }
+	coming_of_age_add_trait = { TRAIT = dyslexic }
+	coming_of_age_add_trait = { TRAIT = hyperlexic }
+	coming_of_age_add_trait = { TRAIT = dyscalculic }
+	coming_of_age_add_trait = { TRAIT = hypercalculic }
+	coming_of_age_add_trait = { TRAIT = permanent_scowl }
+	coming_of_age_add_trait = { TRAIT = friendly_face }
+	coming_of_age_add_trait = { TRAIT = memory_good }
+	coming_of_age_add_trait = { TRAIT = memory_bad }
+}
+
+replace_all_traits_with_tricks = {
+	replace_trait_with_trick = { TRAIT = physique_bad_3 }
+	replace_trait_with_trick = { TRAIT = physique_bad_2 }
+	replace_trait_with_trick = { TRAIT = physique_bad_1 }
+	replace_trait_with_trick = { TRAIT = physique_good_3 }
+	replace_trait_with_trick = { TRAIT = physique_good_2 }
+	replace_trait_with_trick = { TRAIT = physique_good_1 }
+	replace_trait_with_trick = { TRAIT = intellect_bad_3 }
+	replace_trait_with_trick = { TRAIT = intellect_bad_2 }
+	replace_trait_with_trick = { TRAIT = intellect_bad_1 }
+	replace_trait_with_trick = { TRAIT = intellect_good_3 }
+	replace_trait_with_trick = { TRAIT = intellect_good_2 }
+	replace_trait_with_trick = { TRAIT = intellect_good_1 }
+	replace_trait_with_trick = { TRAIT = beauty_bad_3 }
+	replace_trait_with_trick = { TRAIT = beauty_bad_2 }
+	replace_trait_with_trick = { TRAIT = beauty_bad_1 }
+	replace_trait_with_trick = { TRAIT = beauty_good_3 }
+	replace_trait_with_trick = { TRAIT = beauty_good_2 }
+	replace_trait_with_trick = { TRAIT = beauty_good_1 }
+	replace_trait_with_trick = { TRAIT = fecund }
+	replace_trait_with_trick = { TRAIT = infertile }
+	replace_trait_with_trick = { TRAIT = pure_blooded }
+	#PIT
+	replace_trait_with_trick = { TRAIT = silver_tongued }
+	replace_trait_with_trick = { TRAIT = glowing }
+	replace_trait_with_trick = { TRAIT = surefooted }
+	replace_trait_with_trick = { TRAIT = regal_bearing }
+	replace_trait_with_trick = { TRAIT = pt_balanced_humors }
+	replace_trait_with_trick = { TRAIT = hardy_lung }
+	replace_trait_with_trick = { TRAIT = hawkeyed }
+	replace_trait_with_trick = { TRAIT = nearsighted }
+	replace_trait_with_trick = { TRAIT = keen-eared }
+	replace_trait_with_trick = { TRAIT = deaf }
+	replace_trait_with_trick = { TRAIT = dyslexic }
+	replace_trait_with_trick = { TRAIT = hyperlexic }
+	replace_trait_with_trick = { TRAIT = dyscalculic }
+	replace_trait_with_trick = { TRAIT = hypercalculic }
+	replace_trait_with_trick = { TRAIT = permanent_scowl }
+	replace_trait_with_trick = { TRAIT = friendly_face }
+	replace_trait_with_trick = { TRAIT = memory_good }
+	replace_trait_with_trick = { TRAIT = memory_bad }
+}
+
+notify_parent_or_guardian_effect = {
+	save_scope_as = child
+	every_player = {
+		limit = {
+			OR = {
+				is_parent_of = scope:child
+				has_relation_ward = scope:child
+				this = scope:child
+			}
+		}
+		send_interface_message = {
+			type = event_generic_neutral
+			title = ToT_trait_gain_msg_title
+			left_icon = scope:child
+
+			show_as_tooltip = {
+				scope:child = {
+					add_trait_force_tooltip = $TRAIT$
+				}
+			}
+		}
+	}
 }
